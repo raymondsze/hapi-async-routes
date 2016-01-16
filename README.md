@@ -41,7 +41,7 @@ or
   path: '/hello', 
   config: {
     handler: {
-      async: Promise.coroutine(function (request, reply) { // If you are using native Promise, you may use co.wrap instead
+      async: Promise.coroutine(function *(request, reply) { // If you are using native Promise, you may use co.wrap instead
 			   reply('Hello World!');
       }
     }
