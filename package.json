@@ -1,9 +1,9 @@
 {
   "name": "hapi-async-routes",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "description": "Support handler as async function for hapi routes",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "author": {
     "name": "Sze Ka Wai Raymond",
     "email": "szer0601@gmail.com"
