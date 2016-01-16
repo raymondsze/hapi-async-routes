@@ -1,9 +1,10 @@
-<h3>Introduction</h3>
+[![Build Status](https://travis-ci.org/raymondsze/hapi-async-routes.svg)](https://travis-ci.org/raymondsze/hapi-async-routes.svg?branch=master)
+## Introduction
 <p>This plugin is used to solve 2 problems.</p>
 <p>1. Use async function as handler instead of thunk. Therefore, you can use await/ yield inside your handler without any wrapper.</p>
 <p>2. server.route by scanning directory.</p>
 
-<h3>NPM Install</h3>
+## Install
 <b>npm install --save hapi-async-routes</b>
 
 <p>The traditional way of route config used by Hapi</p>
@@ -49,7 +50,7 @@ or
 ```
 
 <p>With this plugin, we don't have to wrap our function to support <b>await</b> or <b>yield</b> to prevent callback hell.</p>
-<h3>Options</h3>
+## Options
 
 <b>routes</b> (Optional): This is the array of dir path you want to scan the routes, it is much convenient if you don't want to server.route manually.</p>
 <p>The file inside the directory should be like that</p>
@@ -118,6 +119,6 @@ function (err, request, reply) {
 }
 ```
 
-<h3>Example</h3>
+## Example
 <p>Please visit the test case for example reference. </p>
 <a href= "https://github.com/raymondsze/hapi-async-routes/tree/master/test">Example usage</a>
