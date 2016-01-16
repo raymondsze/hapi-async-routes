@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/raymondsze/hapi-async-routes.svg)](https://travis-ci.org/raymondsze/hapi-async-routes.svg?branch=master)
+## hapi-async-routes [![Build Status](https://travis-ci.org/raymondsze/hapi-async-routes.svg)](https://travis-ci.org/raymondsze/hapi-async-routes.svg?branch=master)
 ## Introduction
 <p>This plugin is used to solve 2 problems.</p>
 <p>1. Use async function as handler instead of thunk. Therefore, you can use await/ yield inside your handler without any wrapper.</p>
