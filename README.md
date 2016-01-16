@@ -45,7 +45,7 @@ or
 ```
 
 With this plugin, we don't have to wrap our function to support <b>await</b> or <b>yield</b> to prevent callback hell.<br>
-<b>Options</b><br>
+<h3>Options</h3>
 <b>routes</b> (Optional): This is an array of routes that you want to enable async handler. You could make use of require-directory and convert to an array.<br>
 If not specified, you need to do the following to route your async handler<br>
 ```javascript
