@@ -1,3 +1,5 @@
+'use strict';
+
 /* 
 * @Author: Sze Ka Wai Raymond (FakeC)
 * @Date:   2016-01-03 21:52:13

@@ -22,10 +22,11 @@
   "keywords": [
     "hapi",
     "async",
+    "await",
     "route",
     "handler",
     "plugin",
-    "bluebird"
+    "promise"
   ],
   "license": "MIT",
   "dependencies": {
@@ -55,8 +56,6 @@
     "require-directory": "^2.1.1"
   },
   "peerDependencies": {
-    "bluebird": ">=3.0.0",
-    "hapi": ">=8.0.0",
-    "boom": ">=2.8.0"
+    "hapi": ">=8.0.0"
   }
 }

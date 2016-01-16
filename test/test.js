@@ -2,7 +2,7 @@
 * @Author: Sze Ka Wai Raymond (FakeC)
 * @Date:   2016-01-01 02:43:46
 * @Last Modified by:   Sze Ka Wai Raymond (FakeC)
-* @Last Modified time: 2016-01-16 16:12:51
+* @Last Modified time: 2016-01-16 21:07:30
 */
 
 const server = require('./server');
@@ -12,7 +12,8 @@ const Code = require('code');
 const lab = Lab.script();
 lab.experiment('async handler', function () {
 	const pluginOptions = {
-		routes: require('./routes'),
+		routes: ['./test/routes'],
+		handlerName: 'async',
 		defaultErrorHandler: function (err, request, reply) {
 			reply(Boom.wrap(err, 501));
 		}
@@ -20,7 +21,7 @@ lab.experiment('async handler', function () {
 
 	lab.test('register hapi-async-route', (done) => {
 		server.register({
-			register: require('../lib'),
+			register: require('../build'),
 			options: pluginOptions
 		}, () => {
 			server.start(() => {
@@ -31,7 +32,7 @@ lab.experiment('async handler', function () {
 	});
 	lab.test('check server.table', (done) => {
 		const table = server.connections[0].table();
-		Code.expect(table.length).to.equal(4);
+		Code.expect(table.length).to.equal(3);
 		done();
 	});
 	lab.test('error', (done) => {
@@ -61,16 +62,6 @@ lab.experiment('async handler', function () {
 		};
 		server.inject(options, (res) => {
 			Code.expect(res.payload).to.equal('Good Bye!');
-			done();
-		});
-	});
-	lab.test('inline', (done) => {
-		const options = {
-			method: 'GET',
-			url: '/inline'
-		};
-		server.inject(options, (res) => {
-			Code.expect(res.payload).to.equal('inline');
 			done();
 		});
 	});

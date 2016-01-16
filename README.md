@@ -1,13 +1,13 @@
-# hapi-async-routes
+<h3>Introduction</h3>
+<p>This plugin is used to solve 2 problems.</p>
+<p>1. Use async function as handler instead of thunk. Therefore, you can use await/ yield inside your handler without any wrapper.</p>
+<p>2. server.route by scanning directory.</p>
 
-<h3>Install</h3>
-Hapi, Bluebird and Boom is required for this plugin<br>
-<b>npm install --save bluebird hapi boom</b><br>
+<h3>NPM Install</h3>
 <b>npm install --save hapi-async-routes</b>
 
-<h3>Introduction</h3>
-The traditional way of route config used by Hapi<br>
-The route config<br>
+<p>The traditional way of route config used by Hapi</p>
+<p>The route config</p>
 ```javascript
 {
   method: 'GET', 
@@ -19,14 +19,16 @@ The route config<br>
   }
 };
 ```
-With this plugin, you can write like this (with babel-register and preset es2015 or es2015-node5).<br>
+<p>With this plugin, you can write like this (with babel-register and preset es2015 or es2015-node5).</p>
 ```javascript
 {
   method: 'GET', 
   path: '/hello', 
   config: {
-    handler: async function (request, reply) {
-			reply('Hello World!');
+    handler: {
+      async: async function (request, reply) {
+			   reply('Hello World!');
+      }
     }
   }
 };
@@ -37,43 +39,85 @@ or
   method: 'GET', 
   path: '/hello', 
   config: {
-    handler: Promise.coroutine(function (request, reply) {
-			reply('Hello World!');
-    })
+    handler: {
+      async: Promise.coroutine(function (request, reply) { // If you are using native Promise, you may use co.wrap instead
+			   reply('Hello World!');
+      }
+    }
   }
 };
 ```
 
-With this plugin, we don't have to wrap our function to support <b>await</b> or <b>yield</b> to prevent callback hell.<br>
+<p>With this plugin, we don't have to wrap our function to support <b>await</b> or <b>yield</b> to prevent callback hell.</p>
 <h3>Options</h3>
-<b>routes</b> (Optional): This is an array of routes that you want to enable async handler. You could make use of require-directory and convert to an array.<br>
-If not specified, you need to do the following to route your async handler<br>
+
+<b>routes</b> (Optional): This is the array of dir path you want to scan the routes, it is much convenient if you don't want to server.route manually.</p>
+<p>The file inside the directory should be like that</p>
 ```javascript
-server.route({
-  method: 'GET', 
-  path: '/hello', 
-  config: {
-    handler: {
-      asyncHandler: {
-        handler: async function (request, reply) {
-  			  reply('Hello World!');
+module.exports = [
+  {
+    method: 'GET', path: '/hello', config: {
+      handler: {
+        async: async function (request, reply) {
+          const asyncBye = async function() {
+            return 'Hello World!';
+          };
+          reply(await asyncBye());
+        }
+      }
+    }
+  },
+  {
+    method: 'GET', path: '/bye', config: {
+      handler: {
+        async: async function (request, reply) {
+          const asyncBye = async function() {
+            return 'Good Bye!';
+          };
+          reply(await asyncBye());
+        }
+      }
+    }
+  },
+  {
+    method: 'GET', path: '/error', config: {
+      handler: {
+        async: async function () {
+          throw Error('error');
         }
       }
     }
   }
-});
+];
 ```
 
-<b>defaultErrorHandler</b> (Optional): This is the default error handler which is a function accepts<br>
-@param err: the error thrown from the async handler<br>
-@param request: the request object<br>
-@param reply: the reply object<br>
+<p><b>handlerName</b> (Optional): This is the custom handler name, default is async</p>
+For example, if changed to "promise", your handler would be like
+```javascript
+{
+  method: 'GET', 
+  path: '/hello', 
+  config: {
+    handler: {
+      promise: async function (request, reply) {
+         reply('Hello World!');
+      }
+    }
+  }
+};
+```
+
+<p><b>defaultErrorHandler</b> (Optional): This is the default error handler which is a function accepts</p>
+err: the error thrown from the async handler<br>
+request: the request object<br>
+reply: the reply object<br>
 If not specified, The default error handler is like that<br>
 ```javascript
 function (err, request, reply) {
-  reply(Boom.wrap(err, 500));
+  reply(err).code(500);
 }
 ```
+
 <h3>Example</h3>
-Please visit the test case for example reference. <br>
-<a href= "https://github.com/raymondsze/hapi-async-routes/tree/master/test">Example usage</a><br>
+<p>Please visit the test case for example reference. </p>
+<a href= "https://github.com/raymondsze/hapi-async-routes/tree/master/test">Example usage</a>
