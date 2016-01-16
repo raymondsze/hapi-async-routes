@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "private": false,
   "description": "Support handler as async function for hapi routes",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "author": {
     "name": "Sze Ka Wai Raymond",
     "email": "szer0601@gmail.com"
   },
   "scripts": {
+    "build": "node node_modules/grunt-cli/bin/grunt",
     "test": "node node_modules/lab/bin/lab test/index.js -c -T 'test/transform.js' -I '__core-js_shared__'"
   },
   "repository": {
@@ -41,12 +42,16 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.3.13",
     "bluebird": "^3.1.1",
+    "boom": "^2.8.0",
     "code": "^2.1.0",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.13.1",
+    "grunt": "^0.4.5",
+    "grunt-babel": "^6.0.0",
+    "grunt-cli": "^0.1.13",
     "hapi": "^8.0.0",
-    "boom": "^2.8.0",
     "lab": "^8.0.2",
+    "load-grunt-tasks": "^3.4.0",
     "require-directory": "^2.1.1"
   },
   "peerDependencies": {
