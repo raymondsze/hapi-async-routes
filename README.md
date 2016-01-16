@@ -60,10 +60,10 @@ module.exports = [
     method: 'GET', path: '/hello', config: {
       handler: {
         async: async function (request, reply) {
-          const asyncBye = async function() {
+          const asyncHello = async function() {
             return 'Hello World!';
           };
-          reply(await asyncBye());
+          reply(await asyncHello());
         }
       }
     }
