@@ -1,8 +1,8 @@
 # hapi-async-routes
 
 <h3>Install</h3>
-Hapi, Bluebird and Boom is required for this plugin
-<b>npm install --save bluebird hapi boom</b>
+Hapi, Bluebird and Boom is required for this plugin<br>
+<b>npm install --save bluebird hapi boom</b><br>
 <b>npm install --save hapi-async-routes</b>
 
 <h3>Introduction</h3>
