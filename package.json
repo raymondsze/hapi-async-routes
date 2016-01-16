@@ -1,0 +1,43 @@
+{
+  "name": "hapi-async-routes",
+  "version": "1.0.0",
+  "description": "Support handler as async function for hapi routes",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node node_modules/lab/bin/lab test/index.js -c -T 'test/transform.js' -I '__core-js_shared__'"
+  },
+  "keywords": [
+    "hapi",
+    "async",
+    "route",
+    "handler"
+  ],
+  "author": "Sze Ka Wai Raymond",
+  "license": "MIT",
+  "dependencies": {
+    "joi": "^7.2.0",
+    "lodash": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^4.1.6",
+    "babel-plugin-transform-async-to-module-method": "^6.3.13",
+    "babel-preset-es2015-node5": "^1.1.1",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-register": "^6.3.13",
+    "bluebird": "^3.1.1",
+    "code": "^2.1.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.13.1",
+    "hapi": "^8.0.0",
+    "lab": "^8.0.2",
+    "require-directory": "^2.1.1"
+  },
+  "peerDependencies": {
+    "bluebird": "^3.0.0",
+    "hapi": "^8.0.0",
+    "boom": "^3.1.1"
+  }
+}
