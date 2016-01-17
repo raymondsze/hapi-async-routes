@@ -2,12 +2,12 @@
 * @Author: Sze Ka Wai Raymond (FakeC)
 * @Date:   2016-01-15 02:44:14
 * @Last Modified by:   Sze Ka Wai Raymond (FakeC)
-* @Last Modified time: 2016-01-17 22:44:22
+* @Last Modified time: 2016-01-17 22:44:38
 */
 
-module.exports = [
+export default [
 	{
-		method: 'GET', path: '/hello', config: {
+		method: 'GET', path: '/helloES6', config: {
 			handler: {
 				async: async function (request, reply) {
 					const asyncHello = async function() {
@@ -19,7 +19,7 @@ module.exports = [
 		}
 	},
 	{
-		method: 'GET', path: '/bye', config: {
+		method: 'GET', path: '/byeES6', config: {
 			handler: {
 				async: async function (request, reply) {
 					const asyncBye = async function() {

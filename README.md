@@ -53,7 +53,10 @@ or
 ## Options
 
 <b>routes</b> (Optional): This is the array of dir path you want to scan the routes, it is much convenient if you don't want to server.route manually.</p>
-<p>The file inside the directory should be like that</p>
+<p>The file inside the directory should <b>module.exports</b> or <b>export default</b> the following</p>
+<p>1. A route config instance </p>
+<p>2. An array of route config instance </p>
+<p>Example:</p>
 ```javascript
 module.exports = [
   {

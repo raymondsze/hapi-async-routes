@@ -2,7 +2,7 @@
 * @Author: Sze Ka Wai Raymond (FakeC)
 * @Date:   2016-01-01 02:43:46
 * @Last Modified by:   Sze Ka Wai Raymond (FakeC)
-* @Last Modified time: 2016-01-16 21:07:30
+* @Last Modified time: 2016-01-17 22:45:30
 */
 
 const server = require('./server');
@@ -32,7 +32,7 @@ lab.experiment('async handler', function () {
 	});
 	lab.test('check server.table', (done) => {
 		const table = server.connections[0].table();
-		Code.expect(table.length).to.equal(3);
+		Code.expect(table.length).to.equal(6);
 		done();
 	});
 	lab.test('error', (done) => {
@@ -59,6 +59,38 @@ lab.experiment('async handler', function () {
 		const options = {
 			method: 'GET',
 			url: '/bye'
+		};
+		server.inject(options, (res) => {
+			Code.expect(res.payload).to.equal('Good Bye!');
+			done();
+		});
+	});
+
+
+	lab.test('errorES6', (done) => {
+		const options = {
+			method: 'GET',
+			url: '/errorES6'
+		};
+		server.inject(options, (res) => {
+			Code.expect(res.statusCode).to.equal(501);
+			done();
+		});
+	});
+	lab.test('helloES6', (done) => {
+		const options = {
+			method: 'GET',
+			url: '/helloES6'
+		};
+		server.inject(options, (res) => {
+			Code.expect(res.payload).to.equal('Hello World!');
+			done();
+		});
+	});
+	lab.test('byeES6', (done) => {
+		const options = {
+			method: 'GET',
+			url: '/byeES6'
 		};
 		server.inject(options, (res) => {
 			Code.expect(res.payload).to.equal('Good Bye!');

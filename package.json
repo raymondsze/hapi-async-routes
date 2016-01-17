@@ -1,6 +1,6 @@
 {
   "name": "hapi-async-routes",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": false,
   "description": "Support handler as async function for hapi routes",
   "main": "build/index.js",
@@ -30,7 +30,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "import-directory": "^1.0.5",
+    "import-directory": "^1.0.6",
     "joi": "^7.2.0",
     "lodash": "^4.0.0"
   },
