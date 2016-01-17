@@ -4,7 +4,7 @@
 * @Author: Sze Ka Wai Raymond (FakeC)
 * @Date:   2016-01-04 02:30:14
 * @Last Modified by:   Sze Ka Wai Raymond (FakeC)
-* @Last Modified time: 2016-01-17 22:18:22
+* @Last Modified time: 2016-01-17 23:26:06
 */
 
 const _ = require('lodash');
@@ -27,7 +27,7 @@ function register(server, options, next) {
 						if (_.isFunction(config.defaultErrorHandler)) {
 							config.defaultErrorHandler(err, request, reply);
 						} else {
-							reply(err).code(500);
+							reply(err);
 						}
 					});
 				};

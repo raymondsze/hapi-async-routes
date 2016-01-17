@@ -118,7 +118,7 @@ reply: the reply object<br>
 If not specified, The default error handler is like that<br>
 ```javascript
 function (err, request, reply) {
-  reply(err).code(500);
+  reply(err);
 }
 ```
 
