@@ -1,6 +1,6 @@
 {
   "name": "hapi-async-routes",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
   "description": "Support handler as async function for hapi routes",
   "main": "build/index.js",
