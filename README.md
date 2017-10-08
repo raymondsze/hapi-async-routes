@@ -1,4 +1,7 @@
 ## hapi-async-routes [![Build Status](https://travis-ci.org/raymondsze/hapi-async-routes.svg)](https://travis-ci.org/raymondsze/hapi-async-routes.svg?branch=master)
+## Not Maintained
+:exclamation: I haven't use Hapi framework for a long time. This repository is no longer maintained.
+
 ## Introduction
 <p>This plugin is used to solve 2 problems.</p>
 <p>1. Use async function as handler instead of thunk. Therefore, you can use await/ yield inside your handler without any wrapper.</p>
